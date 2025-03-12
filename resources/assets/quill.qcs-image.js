@@ -19,7 +19,7 @@ class QuillQCSImage {
         const quill = this.editor.quill;
         const fileInput = document.createElement('input');
         fileInput.setAttribute('type', 'file');
-        fileInput.setAttribute('accept', 'image/png, image/gif, image/jpeg, image/bmp, image/x-icon');
+        fileInput.setAttribute('accept', 'image/png, image/jpeg');
         fileInput.classList.add('ql-image');
         fileInput.style.display = 'none';
         fileInput.addEventListener('change', () => {
@@ -49,6 +49,7 @@ class QuillQCSImage {
                     quill.insertEmbed(range.index, 'image', '//' + data.Location);
                     quill.setSelection(range.index + 1);
                 }
+                fileInput.value = '';
             })
         })
 
